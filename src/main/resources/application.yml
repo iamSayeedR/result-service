@@ -1,0 +1,17 @@
+server:
+  port : 8084
+
+spring:
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+    listener:
+      simple:
+        default-requeue-rejected: false
+        concurrency: 3
+        max-concurrency: 10
+
+
+exam.result.queue-name: basirhat.exam.result.queue
