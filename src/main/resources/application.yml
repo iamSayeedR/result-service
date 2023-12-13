@@ -1,6 +1,10 @@
 server:
   port : 8084
 
+  questionnaire-service:
+    url: http://localhost:8082
+    answer-end-point: /v1/question/answer
+
 spring:
   rabbitmq:
     host: localhost
@@ -15,3 +19,6 @@ spring:
 
 
 exam.result.queue-name: basirhat.exam.result.queue
+
+no_of_questions_per_exam: 5
+passing_score: 60.0
