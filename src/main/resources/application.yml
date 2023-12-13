@@ -1,9 +1,9 @@
 server:
   port : 8084
 
-  questionnaire-service:
-    url: http://localhost:8082
-    answer-end-point: /v1/question/answer
+questionnaire-service:
+  url: http://localhost:8082
+  answer-end-point: /v1/question/answer
 
 spring:
   rabbitmq:

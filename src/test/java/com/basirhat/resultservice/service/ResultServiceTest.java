@@ -13,6 +13,7 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
+import org.springframework.test.util.ReflectionTestUtils;
 
 import java.util.List;
 
@@ -25,18 +26,23 @@ class ResultServiceTest {
     @InjectMocks
    private ResultService resultService;
 
-    @Mock
-    private QuestionnaireService questionnaireService;
+        @Mock
+        private QuestionnaireService questionnaireService;
 
-    private ListAppender<ILoggingEvent> listAppender;
+        @Mock
+        private EmailService emailService;
 
-    @BeforeEach
-    void setUp() {
-        listAppender = LogUtil.buildTestLogListAppender(ResultService.class);
-    }
+        private ListAppender<ILoggingEvent> listAppender;
 
-    @Test
-    void shouldTestVerifyTheBothAnswers() {
+        @BeforeEach
+        void setUp() {
+            listAppender = LogUtil.buildTestLogListAppender(ResultService.class);
+            ReflectionTestUtils.setField(resultService, "noOfQuestionsPerExam", 5);
+            ReflectionTestUtils.setField(resultService, "passingScore", 60.0);
+        }
+
+        @Test
+        void shouldTestVerifyTheBothAnswers() {
 
 
 
